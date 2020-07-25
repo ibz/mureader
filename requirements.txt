@@ -1,0 +1,7 @@
+Flask
+Flask-Bcrypt
+Flask-Cors
+Flask-JWT-Extended
+Flask-Migrate
+Flask-Script
+pyjwt
