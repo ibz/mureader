@@ -4,7 +4,11 @@
 `source venv/bin/activate`
 `pip install --upgrade pip`
 `pip install -r requirements.txt`
-`SQLALCHEMY_DATABASE_URI=sqlite:///db/app.db python manage.py create_db`
+`python ./server/manage.py create_db`
+
+## Running the app
+
+`python ./server/run.py`
 
 ## Building the docker container
 

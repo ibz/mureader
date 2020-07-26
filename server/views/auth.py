@@ -1,8 +1,31 @@
-from flask import flash, make_response, redirect, render_template, request, url_for
-from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity, jwt_refresh_token_required, set_access_cookies, set_refresh_cookies, unset_jwt_cookies
+from functools import wraps
 
-from app import app, bcrypt, db, jwt_required
+from flask import flash, redirect, render_template, request, url_for
+from flask_jwt_extended import create_access_token, create_refresh_token, set_access_cookies, set_refresh_cookies, unset_jwt_cookies
+from flask_jwt_extended import get_jwt_identity, jwt_refresh_token_required, verify_jwt_in_request
+from flask_jwt_extended.exceptions import NoAuthorizationError
+
+from app import app, bcrypt, db, jwt
+from forms import LoginForm, RegisterForm
 from models import User
+
+@jwt.claims_verification_failed_loader
+def no_jwt():
+    return redirect(url_for('login'))
+
+@jwt.expired_token_loader
+def jwt_token_expired():
+    return redirect(url_for('refresh'))
+
+def jwt_required(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        try:
+            verify_jwt_in_request()
+        except NoAuthorizationError:
+            return no_jwt()
+        return fn(*args, **kwargs)
+    return wrapper
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
@@ -31,7 +54,7 @@ def register():
         flash(error)
         return redirect(url_for('register'))
     else:
-        return render_template('auth/register.html')
+        return render_template('auth/register.html', form=RegisterForm())
 
 @app.route('/login', methods=('GET', 'POST'))
 def login():
@@ -49,7 +72,7 @@ def login():
             flash('Incorrect email or password')
             return redirect(url_for('login'))
     else:
-        return render_template('auth/login.html')
+        return render_template('auth/login.html', form=LoginForm())
 
 @app.route('/logout', methods=('GET',))
 def logout():
@@ -64,12 +87,3 @@ def refresh():
     response = redirect(url_for('index'))
     set_access_cookies(response, create_access_token(identity=email))
     return response
-
-@app.route('/')
-@jwt_required
-def index():
-    email = get_jwt_identity()
-    if email:
-        return render_template('index.html', email=email)
-    else:
-        return redirect(url_for('login'))

@@ -1,6 +1,7 @@
 from flask_script import Manager
 
-from server import app, db
+from app import app, db
+import models
 
 manager = Manager(app)
 

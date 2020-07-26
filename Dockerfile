@@ -14,5 +14,4 @@ COPY server/ /usr/src/app
 
 EXPOSE 5000
 
-ENV SQLALCHEMY_DATABASE_URI "sqlite:////db/app.db"
-CMD [ "python", "./server.py" ]
+CMD [ "python", "./run.py" ]

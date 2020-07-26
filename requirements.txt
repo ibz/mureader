@@ -4,4 +4,6 @@ Flask-Cors
 Flask-JWT-Extended
 Flask-Migrate
 Flask-Script
+Flask-WTF
 pyjwt
+wheel
