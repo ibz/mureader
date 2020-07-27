@@ -1,14 +1,18 @@
 ## Setting up a venv and creating the database
 
 `python3 -m venv venv`
+
 `source venv/bin/activate`
+
 `pip install --upgrade pip`
+
 `pip install -r requirements.txt`
-`python ./server/manage.py create_db`
+
+`python server/manage.py create_db`
 
 ## Running the app
 
-`python ./server/run.py`
+`python server/run.py`
 
 ## Building the docker container
 
