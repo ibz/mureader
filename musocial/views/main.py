@@ -1,8 +1,12 @@
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, redirect, render_template, Response, url_for
 from flask_jwt_extended import current_user, verify_jwt_in_request
 from flask_jwt_extended.exceptions import NoAuthorizationError
 
 main_blueprint = Blueprint('main', __name__)
+
+@main_blueprint.route('/robots.txt', methods=['GET'])
+def robots_txt():
+    return Response("User-agent: *\nDisallow: /\nAllow: /about\n", mimetype='text/plain')
 
 @main_blueprint.route('/', methods=['GET'])
 def index():
