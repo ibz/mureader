@@ -43,3 +43,9 @@ Note that when running locally, we use the config under `instance/` which uses a
 or
 
 `sh run.sh` to run it on a machine where [docker-compose-letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) is already running
+
+## cronjob
+
+Add the following to your machine's crontab:
+
+`0 0 * * * docker exec mureader python /app/scripts/fetch_feeds.py`
