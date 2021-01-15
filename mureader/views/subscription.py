@@ -6,9 +6,9 @@ from flask_jwt_extended import current_user
 import requests
 from sqlalchemy import func
 
-from musocial import forms, models as m
-from musocial.parser import extract_feed_links, parse_feed
-from musocial.main import db, jwt_required
+from mureader import forms, models as m
+from mureader.parser import extract_feed_links, parse_feed
+from mureader.main import db, jwt_required
 
 subscription_blueprint = Blueprint('subscription', __name__)
 

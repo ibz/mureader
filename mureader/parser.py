@@ -12,7 +12,7 @@ from xml.etree.ElementTree import fromstring, ElementTree, ParseError
 
 import config
 
-from musocial.main import app
+from mureader.main import app
 
 HEADERS = {'User-Agent': config.USER_AGENT}
 

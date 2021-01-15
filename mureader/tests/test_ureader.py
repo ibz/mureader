@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 
-from musocial.main import app, db
+from mureader.main import app, db
 
 @pytest.fixture
 def client():
@@ -30,11 +30,11 @@ def logout(client):
     return client.get('/logout', follow_redirects=True)
 
 def test_login_nouser(client):
-    rv = login(client, 'hello@musocial.me', 'hellopass')
+    rv = login(client, 'mureader@1984.solutions', 'hellopass')
     assert b'Incorrect email or password' in rv.data
 
 def test_register(client):
-    register(client, 'hello@musocial.me', 'hellopass')
-    rv = login(client, 'hello@musocial.me', 'hellopass')
+    register(client, 'mureader@1984.solutions', 'hellopass')
+    rv = login(client, 'mureader@1984.solutions', 'hellopass')
     assert b'Incorrect email or password' not in rv.data
     assert b'Subscribe' in rv.data

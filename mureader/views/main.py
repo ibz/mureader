@@ -8,7 +8,7 @@ main_blueprint = Blueprint('main', __name__)
 def sitemap_xml():
     return Response("""<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <url><loc>http://musocial.me/about</loc></url>
+            <url><loc>http://mureader.1984.solutions/about</loc></url>
         </urlset>""", mimetype='application/xml')
 
 @main_blueprint.route('/robots.txt', methods=['GET'])

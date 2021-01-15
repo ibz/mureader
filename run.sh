@@ -1,3 +1,3 @@
-docker stop musocial
-docker container rm musocial
-docker run -d -e VIRTUAL_HOST=musocial.me --network=webproxy --name=musocial -e LETSENCRYPT_HOST=musocial.me -e LETSENCRYPT_EMAIL=musocial@ibz.me -v $(pwd)/db:/db -v $(pwd)/instance-docker:/instance ibz0/musocial
+docker stop mureader
+docker container rm mureader
+docker run -d -e VIRTUAL_HOST=mureader.1984.solutions --network=webproxy --name=mureader -e LETSENCRYPT_HOST=mureader.1984.solutions -e LETSENCRYPT_EMAIL=mureader@1984.solutions -v $(pwd)/db:/db -v $(pwd)/instance-docker:/instance ibz0/mureader

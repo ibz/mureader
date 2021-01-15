@@ -30,15 +30,15 @@ class MyFlask(Flask):
 
     def __call__(self, environ, start_response):
         if not self.initialized:
-            from musocial.views.ajax import ajax_blueprint
+            from mureader.views.ajax import ajax_blueprint
             app.register_blueprint(ajax_blueprint)
-            from musocial.views.feed import feed_blueprint
+            from mureader.views.feed import feed_blueprint
             app.register_blueprint(feed_blueprint)
-            from musocial.views.main import main_blueprint
+            from mureader.views.main import main_blueprint
             app.register_blueprint(main_blueprint)
-            from musocial.views.subscription import subscription_blueprint
+            from mureader.views.subscription import subscription_blueprint
             app.register_blueprint(subscription_blueprint)
-            from musocial.views.user import user_blueprint
+            from mureader.views.user import user_blueprint
             app.register_blueprint(user_blueprint)
             self.initialized = True
         return super().__call__(environ, start_response)
@@ -65,7 +65,7 @@ def jwt_token_expired():
 
 @jwt.user_loader_callback_loader
 def load_user(email):
-    from musocial import models
+    from mureader import models
     return models.User.query.filter_by(email=email).first()
 
 def jwt_required(fn):

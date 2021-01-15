@@ -8,7 +8,7 @@ JWT_TOKEN_LOCATION = 'cookies'
 JWT_ACCESS_TOKEN_EXPIRES = datetime.timedelta(days=1)
 JWT_CSRF_CHECK_FORM = True
 JWT_ACCESS_CSRF_FIELD_NAME = 'jwt_csrf_token'
-MAIL_DEFAULT_SENDER = 'hello@musocial.me'
-LOG_EMAIL = 'musocial@ibz.me'
+MAIL_DEFAULT_SENDER = 'mureader@1984.solutions'
+LOG_EMAIL = 'mureader@1984.solutions'
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:80.0) Gecko/20100101 Firefox/80.0"

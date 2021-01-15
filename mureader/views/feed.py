@@ -2,8 +2,8 @@ from flask import Blueprint, render_template
 from flask_jwt_extended import current_user, verify_jwt_in_request
 from flask_jwt_extended.exceptions import NoAuthorizationError
 
-from musocial import models
-from musocial.main import jwt_required
+from mureader import models
+from mureader.main import jwt_required
 
 feed_blueprint = Blueprint('feed', __name__)
 

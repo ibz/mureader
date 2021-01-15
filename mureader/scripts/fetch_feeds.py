@@ -3,9 +3,9 @@ import sys
 
 from flask_mail import Message
 
-from musocial import models
-from musocial.main import app, db, mail
-from musocial.parser import parse_feed
+from mureader import models
+from mureader.main import app, db, mail
+from mureader.parser import parse_feed
 
 def fetch_feed(feed):
     print("Fetching %s" % feed.url)

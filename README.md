@@ -17,7 +17,7 @@ EOF
 
 `mkdir db && python manage.py create_db`
 
-`export FLASK_APP=musocial.main`
+`export FLASK_APP=mureader.main`
 
 ## Running the app locally
 
@@ -38,7 +38,7 @@ EOF
 
 Note that when running locally, we use the config under `instance/` which uses a relative path in the database URI. When running under docker, we use the config under `instance-docker/` which uses an absolute path, because we will mount the database as a volume in docker.
 
-`docker run -p 8080:80 -v $(pwd)/db:/db -v $(pwd)/instance-docker:/instance -t ibz0/musocial`
+`docker run -p 8080:80 -v $(pwd)/db:/db -v $(pwd)/instance-docker:/instance -t ibz0/mureader`
 
 or
 

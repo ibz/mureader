@@ -4,9 +4,9 @@ import requests
 import sys
 from urllib.parse import urlparse
 
-from musocial import models
-from musocial.main import db
-from musocial.parser import parse_feed, extract_feed_links
+from mureader import models
+from mureader.main import db
+from mureader.parser import parse_feed, extract_feed_links
 
 import config
 
